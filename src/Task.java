@@ -1,7 +1,7 @@
 /**
  * A class that implements a task object. DO NOT MODIFY.
  */
-package PA04;
+
 public class Task {
     
     /* instance variables */

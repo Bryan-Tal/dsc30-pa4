@@ -2,7 +2,6 @@
  * NAME: Bryan Talavera
  * PID: A14378593
  */
-package PA04;
 import java.util.AbstractList;
 
 /**
