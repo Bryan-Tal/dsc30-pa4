@@ -1,7 +1,6 @@
 /**
  * A class that implements a task object. DO NOT MODIFY.
  */
-
 public class Task {
     
     /* instance variables */

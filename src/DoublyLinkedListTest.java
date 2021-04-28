@@ -32,10 +32,13 @@ public class DoublyLinkedListTest {
     @Test
     public void testFirstAdd() {
         DLL.add(1);
-
-        assertEquals(new Integer(1),DLL.get(0));
-        assertEquals(1,DLL.size());
-
+        DLL.add(2);
+        DLL.add(3);
+        DLL.add(4);
+        DLL.add(5);
+        DLL.set(5,6);
+        DLL.remove(4);
+        System.out.println(DLL);
     }
 
     @Test
@@ -166,6 +169,7 @@ public class DoublyLinkedListTest {
         DLL.add(2);
         while (DLL.get(0) != 1){
             DLL.set(i,i+1);
+            i++;
         }
         assertEquals(new Integer(1),DLL.get(0));
     }
@@ -181,13 +185,13 @@ public class DoublyLinkedListTest {
         for (int i = 0; i < 5; i++) {
             DLL.add(i+2);
         }
-        assertEquals(new Integer(5),DLL.get(4));
+        assertEquals(new Integer(6),DLL.get(4));
     }
 
     @Test
     public void testGet3() {
-        int i = 1;
-        while (i < 2){
+        int i = 0;
+        while (i < 3){
             DLL.add(i * 2);
             i++;
         }
@@ -258,12 +262,12 @@ public class DoublyLinkedListTest {
 
     @Test
     public void testRemoveAgain_Again() {
-        int i = 0;
-        for (; i < 5; i++) {
+
+        for (int i = 0; i < 5; i++) {
             DLL.add(i);
         }
-        for (i=i-1; i >= 0; i--) {
-            DLL.remove(i);
+        for (int j = DLL.size() - 1; j >= 0; j--) {
+            DLL.remove(j);
         }
         assertEquals(true,DLL.isEmpty());
     }
@@ -316,10 +320,49 @@ public class DoublyLinkedListTest {
 
     @Test
     public void removeMultipleOf() {
+        DLL.add(0);
+        DLL.add(1);
+        DLL.add(2);
+        DLL.add(1);
+        DLL.add(4);
+        DLL.add(1);
+        DLL.add(6);
+        DLL.add(1);
+        DLL.add(8);
+        DLL.add(1);
+        DLL.add(10);
+        DLL.add(1);
+        DLL.add(12);
+        DLL.add(1);
+        DLL.removeMultipleOf(2);
+        System.out.println(DLL);
+
+
     }
 
     @Test
     public void swapSegment() {
+        DoublyLinkedList<Integer> other = new DoublyLinkedList<>();
+        DLL.add(0);
+        DLL.add(1);
+        DLL.add(2);
+        DLL.add(3);
+        DLL.add(4);
+        DLL.add(5);
+        DLL.add(6);
+
+        other.add(7);
+        other.add(8);
+        other.add(9);
+        other.add(10);
+        other.add(11);
+        other.add(12);
+        other.add(13);
+
+        DLL.swapSegment(other,5);
+
+        System.out.println(DLL);
+        System.out.println(other);
     }
 
 }

@@ -1,44 +1,72 @@
 /*
- * NAME: TODO
- * PID: TODO
+ * NAME: Bryan Talavera
+ * PID: A14378593
  */
 
 /**
- * TODO
+ * This is a Stack Implementation which utilizes a Doubly Linked List
  * @param <T> generic container
- * @author TODO
- * @since TODO
+ * @author Bryan Talavera
+ * @since 04/25/21
  */
 public class DLLStack<T> {
 
     private DoublyLinkedList<T> stack;
 
     public DLLStack() {
-        /* TODO */
+        this.stack = new DoublyLinkedList<>();
     }
 
+    /**
+     * This method returns the size of the stack
+     * @return number of elements currently stored
+     */
     public int size() {
-        /* TODO */
-        return 0;
+        int size = this.stack.size();
+        return size;
     }
 
+    /**
+     * Method checks if our stack is empty
+     * @return True if our stack is empty, else it returns false
+     */
     public boolean isEmpty() {
-        /* TODO */
-        return false;
+        return this.size() == 0;
     }
 
+    /**
+     * This method pushes data to our stack
+     * @param data - the T value we are adding to our stack
+     * @throws IllegalArgumentException if data is null
+     */
     public void push(T data) {
-        /* TODO */
+        try{
+            if (data == null){
+                throw new IllegalArgumentException();
+            }else{
+                this.stack.add(0,data);
+            }
+        }catch (IllegalArgumentException err){
+            throw err;
+        }
     }
 
+    /**
+     * This method removes the top (0th) element of the stack and returns it
+     * @return - The element we popped, null if no elements exist
+     */
     public T pop() {
-        /* TODO */
-        return null;
+        if (this.isEmpty()) return null;
+        return this.stack.remove(0);
     }
 
+    /**
+     * "Peeks" at the top item in our stack, without removing it
+     * @return the top
+     */
     public T peek() {
-        /* TODO */
-        return null;
+        if (this.stack.get(0) != null) return this.stack.get(0);
+        else return null;
     }
 
 }
